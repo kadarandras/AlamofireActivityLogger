@@ -138,6 +138,7 @@
 					321C5A031CFC18BB0012B3AB = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = CF864KN2XE;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -344,9 +345,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CF864KN2XE;
 				INFOPLIST_FILE = alamofire_activity_logger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.manuege.alamofire-activity-logger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -357,9 +360,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CF864KN2XE;
 				INFOPLIST_FILE = alamofire_activity_logger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.manuege.alamofire-activity-logger";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

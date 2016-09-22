@@ -76,7 +76,7 @@ public protocol LoggeableRequest: AnyObject {
      Use this method to fetch the info needed to buld a `ResponseInfo` instance. Once the `ResponseInfo` has been build, you must call the `completion` parameter .
      - parameter completion: The block that must be called when the asynchronous process has finished.
      */
-    func fetchResponseInfo(completion: @escaping (ResponseInfo) -> Void)
+    func fetchResponseInfo(_ completion: @escaping (ResponseInfo) -> Void)
 }
 
 public extension LoggeableRequest {
@@ -84,7 +84,7 @@ public extension LoggeableRequest {
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions) -> Self {
+    public func log(_ level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions) -> Self {
         
         guard level != .none else {
             return self
@@ -95,9 +95,9 @@ public extension LoggeableRequest {
             return self
         }
         
-        Logger.logRequest(request: request, level: level, options: options)
+        Logger.logRequest(request, level: level, options: options)
         fetchResponseInfo { response in
-            Logger.logResponse(request: self.request, response: response, level: level, options: options)
+            Logger.logResponse(self.request, response: response, level: level, options: options)
         }
         
         return self
@@ -106,7 +106,7 @@ public extension LoggeableRequest {
 
 
 extension DataRequest: LoggeableRequest {
-    public func fetchResponseInfo(completion: @escaping (ResponseInfo) -> Void) {
+    public func fetchResponseInfo(_ completion: @escaping (ResponseInfo) -> Void) {
         
         responseData { (response) in
             
@@ -126,7 +126,7 @@ extension DataRequest: LoggeableRequest {
 }
 
 extension DownloadRequest: LoggeableRequest {
-    public func fetchResponseInfo(completion: @escaping (ResponseInfo) -> Void) {
+    public func fetchResponseInfo(_ completion: @escaping (ResponseInfo) -> Void) {
         
         responseData { (response) in
             

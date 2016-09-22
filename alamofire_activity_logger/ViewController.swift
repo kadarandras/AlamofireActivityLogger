@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         performRequest(withURL: failURL)
     }
     
-    private func performRequest(withURL URL: String) {
+    fileprivate func performRequest(withURL URL: String) {
         
         // Build options
         var options: [LogOption] = []
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         self.setViewEnabled(false)
         request(URL, method: .get)
             .validate()
-            .log(level: level, options: options)
+            .log(level, options: options)
             .responseData { (response) in
                 self.setViewEnabled(true)
         }
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         views.forEach { $0.isEnabled = enabled }
     }
     
-    private func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {}
+    fileprivate func logResponse(_ request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {}
         
 }
 

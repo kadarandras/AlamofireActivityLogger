@@ -16,7 +16,7 @@ private let separatorString = "*******************************"
  */
 internal struct Logger {
     
-    private static func string(from data: Data?, prettyPrint: Bool) -> String? {
+    fileprivate static func string(from data: Data?, prettyPrint: Bool) -> String? {
         
         guard let data = data else {
             return nil
@@ -37,7 +37,7 @@ internal struct Logger {
         return response
     }
     
-    private static func prettyPrintedString(from json: Any?) -> String? {
+    fileprivate static func prettyPrintedString(from json: Any?) -> String? {
         guard let json = json else {
             return nil
         }
@@ -52,7 +52,7 @@ internal struct Logger {
         return response
     }
     
-    internal static func logRequest(request: URLRequest?, level: LogLevel, options: [LogOption]) {
+    internal static func logRequest(_ request: URLRequest?, level: LogLevel, options: [LogOption]) {
         
         guard let request = request else {
             return
@@ -80,7 +80,7 @@ internal struct Logger {
         }
     }
     
-    internal static func logResponse(request: URLRequest?, response: ResponseInfo, level: LogLevel, options: [LogOption]) {
+    internal static func logResponse(_ request: URLRequest?, response: ResponseInfo, level: LogLevel, options: [LogOption]) {
         
         guard level != .none else {
             return
